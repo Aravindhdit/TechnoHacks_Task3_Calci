@@ -1,0 +1,89 @@
+/* styles.css */
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    background-image: url('neon_bk9.jpg');
+    background-size: cover;
+    background-position: center;
+    font-family: 'Arial', sans-serif;
+}
+
+.calculator {
+    width: 320px;
+    background-color: rgba(0, 0, 0, 0.85);
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.7);
+}
+
+.display {
+    background-color: rgba(0, 0, 0, 0.9);
+    color: #00ffcc;
+    font-size: 2em;
+    text-align: right;
+    padding: 20px;
+    box-sizing: border-box;
+    border-bottom: 2px solid #444;
+}
+
+.buttons {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1px;
+}
+
+.button {
+    padding: 20px;
+    font-size: 1.5em;
+    background-color: rgba(0, 0, 0, 0.8);
+    border: none;
+    color: #00ffcc;
+    cursor: pointer;
+    position: relative;
+    overflow: hidden;
+    transition: background-color 0.2s ease, color 0.2s ease;
+}
+
+.button::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: rgba(0, 255, 204, 0.1);
+    pointer-events: none;
+    transform: rotate(45deg);
+}
+
+.button:hover::before {
+    animation: shine 1s ease-in-out;
+}
+
+@keyframes shine {
+    0% { left: -50%; top: -50%; }
+    50% { left: 0; top: 0; }
+    100% { left: 50%; top: 50%; }
+}
+
+.button:hover {
+    background-color: rgba(0, 255, 204, 0.2);
+    color: #ffffff;
+    box-shadow: 0 0 15px #00ffcc, 0 0 30px #00ffcc, 0 0 45px #00ffcc;
+}
+
+.button:active {
+    background-color: rgba(0, 255, 204, 0.3);
+}
+
+.zero {
+    grid-column: span 2;
+}
+
+/* Neon Light Effect */
+.button {
+    text-shadow: 0 0 5px #00ffcc, 0 0 10px #00ffcc, 0 0 20px #00ffcc, 0 0 30px #00ffcc;
+}
